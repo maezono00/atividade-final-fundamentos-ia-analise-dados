@@ -51,7 +51,7 @@ This project leverages a modern stack for data science, web services, and fronte
     python app.py
     ```
 
-### 🌐 Using the API Directly
+## 🌐 Using the API Directly
 
 You can interact with the API directly without running it locally. The service is hosted on **Render**.
 
