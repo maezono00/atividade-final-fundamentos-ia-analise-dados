@@ -1,6 +1,6 @@
 # Used Car Price Prediction API
 
-This repository contains a **Python-based API** designed to predict the prices of used cars. This project was developed as a **final assignment** for the **Fundamentals of AI and Data Analysis** course.
+This repository contains a **Python-based API** designed to predict the prices of used cars. This project was developed as a **course activity** for the **Fundamentals of AI and Data Analysis** course.
 
 The application uses machine learning techniques to analyze vehicle data and provide price estimations. A live version of the interface associated with this project can be found at [drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/).
 
