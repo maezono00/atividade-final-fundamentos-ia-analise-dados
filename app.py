@@ -44,7 +44,7 @@ def prever():
         })
         preco = modelo.predict(carro)[0]
         #Após toda a insierção das informações, é feito a exibição do preço, para formatar o preço exibido, é usado a função round(), dentro dela, para assegurar de que o preço será um número float, é inserido a variável preco dentro do float() e depois disso é indicado o número 2, ou seja, a função round vai arrendondar até duas casas decimais.
-        return jsonify({"preço" : round(float(preco),2)})
+        return jsonify({"Preço" : round(float(preco),2)})
     except Exception as erro:
         return jsonify({"erro" : str(erro)}), 400
         
