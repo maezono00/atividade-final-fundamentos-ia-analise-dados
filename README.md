@@ -23,20 +23,12 @@ The application uses machine learning techniques to analyze vehicle data and pro
 This project leverages a modern stack for data science, web services, and frontend hosting:
 
 *   **Python:** The core programming language used for all backend logic.
-*   **Pandas & NumPy:** Essential libraries for data manipulation and cleaning the car dataset (`dataset_carros_usados_2.csv`).
-*   **Scikit-learn:** The core library for implementing the Machine Learning model.
-*   **Flask / FastAPI:** Frameworks used in `app.py` to create the REST API endpoints.
-*   **Render:** The cloud platform used for **hosting the API**, ensuring it is accessible online.
-*   **Lovable:** The platform used to build and host the **frontend interface** ([drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/)).
-
-### 📦 Key Libraries and Tools
-
-This project leverages the Python ecosystem for data science and web services. The main libraries used include:
-
 *   **Pandas & NumPy:** Used for data manipulation, cleaning the car dataset, and performing numerical operations.
 *   **Scikit-learn:** The core library for implementing the Machine Learning model responsible for predicting car prices based on historical data.
 *   **Flask / FastAPI (API Framework):** Used in `app.py` to create the REST API that handles prediction requests and returns results in JSON format.
 *   **Gunicorn / Uvicorn:** Typically used as the production web server to run the API (check your `requirements.txt` for specific versions).
+*   **Render:** The cloud platform used for **hosting the API**, ensuring it is accessible online.
+*   **Lovable:** The platform used to build and host the **frontend interface** ([drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/)).
 
 > **Note:** All specific versions of the libraries used in this project are listed in the `requirements.txt` file to ensure environment reproducibility.
 
