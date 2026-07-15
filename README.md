@@ -20,9 +20,15 @@ The application uses machine learning techniques to analyze vehicle data and pro
 
 ## 🛠️ Technologies Used
 
-*   **Python:** The core programming language.
-*   **Machine Learning & Data Analysis:** Core concepts and libraries applied to the project.
-*   **CSV Dataset:** Uses `dataset_carros_usados_2.csv` for model training or reference.
+This project leverages a modern stack for data science, web services, and frontend hosting:
+
+*   **Python:** The core programming language used for all backend logic.
+*   **Pandas & NumPy:** Essential libraries for data manipulation and cleaning the car dataset (`dataset_carros_usados_2.csv`).
+*   **Scikit-learn:** The core library for implementing the Machine Learning model.
+*   **Flask / FastAPI:** Frameworks used in `app.py` to create the REST API endpoints.
+*   **Render:** The cloud platform used for **hosting the API**, ensuring it is accessible online.
+*   **Lovable:** The platform used to build and host the **frontend interface** ([drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/)).
+
 
 ### 📦 Key Libraries and Tools
 
