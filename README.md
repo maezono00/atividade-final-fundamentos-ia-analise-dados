@@ -29,7 +29,6 @@ This project leverages a modern stack for data science, web services, and fronte
 *   **Render:** The cloud platform used for **hosting the API**, ensuring it is accessible online.
 *   **Lovable:** The platform used to build and host the **frontend interface** ([drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/)).
 
-
 ### 📦 Key Libraries and Tools
 
 This project leverages the Python ecosystem for data science and web services. The main libraries used include:
