@@ -33,7 +33,8 @@ This project leverages a modern stack for data science, web services, and fronte
 *   **Render:** The cloud platform used for **hosting the API**, ensuring it is accessible online.
 *   **Lovable:** The platform used to build and host the **frontend interface** ([https://autopreconet.lovable.app](https://autopreconet.lovable.app)).
 
-> **Note:** All specific versions of the libraries used in this project are listed in the `requirements.txt` file to ensure environment reproducibility.
+> [!NOTE]
+> **Observation:** All specific versions of the libraries used in this project are listed in the `requirements.txt` file to ensure environment reproducibility.
 
 ## 🗄️ Database Integration (Supabase)
 The API is connected to a Supabase table named **`historico_previsoes`**. When a prediction is made, the following data is saved:
