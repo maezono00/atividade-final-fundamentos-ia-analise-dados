@@ -2,7 +2,7 @@
 
 This repository contains a **Python-based API** designed to predict the prices of used cars. This project was developed as a **course activity** for the **Fundamentals of AI and Data Analysis** course.
 
-The application uses machine learning techniques to analyze vehicle data and provide price estimations. A live version of the interface associated with this project can be found at [drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/).
+The application uses machine learning techniques to analyze vehicle data and provide price estimations. A live version of the interface associated with this project can be found at [https://autopreconet.lovable.app](https://autopreconet.lovable.app).
 
 ## 📂 Repository Structure
 
@@ -14,6 +14,7 @@ The application uses machine learning techniques to analyze vehicle data and pro
 ## 🚀 Features
 
 *   **Price Prediction:** Predicts the market value of used cars based on input features.
+*   **Database Logging (Supabase):** Every prediction request is automatically stored in a database for history tracking.
 *   **Machine Learning Integration:** Utilizes data analysis and AI models to generate results.
 *   **REST API:** Built with Python to serve predictions programmatically.
 *   **Formatted Output:** The API returns results under the key `Preço`.
@@ -26,11 +27,18 @@ This project leverages a modern stack for data science, web services, and fronte
 *   **Pandas & NumPy:** Used for data manipulation, cleaning the car dataset, and performing numerical operations.
 *   **Scikit-learn:** The core library for implementing the Machine Learning model responsible for predicting car prices based on historical data.
 *   **Flask / FastAPI (API Framework):** Used in `app.py` to create the REST API that handles prediction requests and returns results in JSON format.
+*   **Supabase:** Backend-as-a-service used for the PostgreSQL database.
+*   **Python-dotenv:** For managing environment variables securely.
 *   **Gunicorn / Uvicorn:** Typically used as the production web server to run the API (check your `requirements.txt` for specific versions).
 *   **Render:** The cloud platform used for **hosting the API**, ensuring it is accessible online.
-*   **Lovable:** The platform used to build and host the **frontend interface** ([drive-wise-guess.lovable.app](https://drive-wise-guess.lovable.app/)).
+*   **Lovable:** The platform used to build and host the **frontend interface** ([https://autopreconet.lovable.app](https://autopreconet.lovable.app)).
 
 > **Note:** All specific versions of the libraries used in this project are listed in the `requirements.txt` file to ensure environment reproducibility.
+
+## 🗄️ Database Integration (Supabase)
+The API is connected to a Supabase table named **`historico_previsoes`**. When a prediction is made, the following data is saved:
+*   Car technical details (`ano`, `quilometragem`, `motor`, `num_revisoes`).
+*   The predicted price (`preco`) rounded to two decimal places.
 
 ## 🔧 Installation and Setup
 
@@ -46,7 +54,14 @@ This project leverages a modern stack for data science, web services, and fronte
     pip install -r requirements.txt
     ```
 
-3.  **Run the API:**
+3.  **Configure Environment Variables:**
+    Create a `.env` file in the root folder with your Supabase credentials:
+    ```env
+    SUPABASE_URL=your_url_here
+    SUPABASE_KEY=your_key_here
+    ```
+
+4.  **Run the API:**
     ```bash
     python app.py
     ```
@@ -82,7 +97,7 @@ To get a price prediction, send a **POST** request to `https://atividade-final-f
 
 ## 📝 Project Context
 
-This project is a key **activity** within the **Fundamentals of AI and Data Analysis** course, demonstrating the practical application of data processing, model implementation, and API deployment,.
+This project is the culmination of the **Fundamentals of AI and Data Analysis** course, demonstrating the practical application of data processing, model implementation, and API deployment.
 
 ## 👤 Author
 
