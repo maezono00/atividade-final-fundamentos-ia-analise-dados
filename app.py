@@ -6,8 +6,24 @@ from flask_cors import CORS
 from sklearn.linear_model import LinearRegression
 #Importando a biblioteca pandas e dando o alias de pd.
 import pandas as pd
+#Importando do supabase a ferramenta create_client.
+from supabase import create_client
+#Importando do framework dotenv a ferramenta load_dotenv, usada para carregar o arquivo .env
+from dotenv import load_dotenv
+#Importando a biblioteca os para importar/usar arquivos dentro do ambiente (do computador).
+import os
 
-#Habilitando a executação da API
+#Importando o arquivo .env
+load_dotenv()
+
+#Na variável tabela será feito o link entre a API e o banco de dados.
+tabela = create_client(
+    #Com a bibliteca os, com a função .getenv(), conseguimos puxar direto do arquivo .env as variáveis SUPABASE_URL e SUPABASE_KEY, onde estão armazenadas informações importantes para a validação do banco de dados. 
+    os.getenv("SUPABASE_URL"),
+    os.getenv("SUPABASE_KEY")
+)
+
+#Habilitando a executação da API.
 app = Flask(__name__)
 CORS(app)
 
@@ -43,7 +59,23 @@ def prever():
             "num_revisoes" : [dados["num_revisoes"]]   
         })
         preco = modelo.predict(carro)[0]
-        #Após toda a insierção das informações, é feito a exibição do preço, para formatar o preço exibido, é usado a função round(), dentro dela, para assegurar de que o preço será um número float, é inserido a variável preco dentro do float() e depois disso é indicado o número 2, ou seja, a função round vai arrendondar até duas casas decimais.
+        
+        #Fazendo uma variável que vai receber o preço formatado, assim, é possível armazenar essa variável dentro do banco de dados.
+        preco_formatado = round(float(preco),2)
+        
+        #Criação do dicionário do banco de dados, onde, cada informação inserida e processada já está pronta pra ser armazenada no banco de dados.
+        registros = {
+            "ano": dados["ano"],
+            "quilometragem": dados["quilometragem"],
+            "motor": dados["motor"],
+            "num_revisoes": dados["num_revisoes"],
+            "preco": preco_formatado
+        }
+        
+        #Com a função .table() na variável tabela, é possível apontar pra API qual o nome da tabela em que as informações serão salvas. Com a função .insert(), apontamos para o dicionário em que foi separado as colunas desejadas que sejam salvas no banco de dados. Por fim, o .execute() vai fazer o registro no banco de dados.
+        tabela.table("historico_previsoes").insert(registros).execute()
+        
+        #Após toda a inserção das informações, é feito a exibição do preço, para formatar o preço exibido, é usado a função round(), dentro dela, para assegurar de que o preço será um número float, é inserido a variável preco dentro do float() e depois disso é indicado o número 2, ou seja, a função round vai arrendondar até duas casas decimais.
         return jsonify({"Preço" : round(float(preco),2)})
     except Exception as erro:
         return jsonify({"erro" : str(erro)}), 400
