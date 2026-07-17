@@ -1,3 +1,5 @@
+## Teste para um pull request Arhur/Arley 17_07_26
+
 #Importando do framkework flask, a ferramenta Flask, request e jsonify.
 from flask import Flask, request, jsonify
 #Importando do flask_cors, a ferramenta CORS, muito usado para questões de segurança ao executar a API.
